@@ -1,0 +1,31 @@
+<html>
+    <head>
+    <script type="text/javascript" src="bundle.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('btnSubmit').onclick = function() {
+              var privateKey = document.getElementById('fieldPrivateKey').value;
+              var message = document.getElementById('fieldEncryptedMessage').value;
+
+              decrypt(message, privateKey).then(result => {
+                document.getElementById('result').innerHTML = result;
+              }).catch(error => {
+                console.log(error);
+              })
+            }
+        };
+    </script>
+</head>
+<body>
+  This is a Javascript page. Nothing typed into this page will leave your computer.
+  <br><br>
+  Private Key<br>
+  <textarea id="fieldPrivateKey"></textarea><br><br>
+  Encrypted Message<br>
+  <textarea id="fieldEncryptedMessage"></textarea><br><br>
+  <button type="button" id="btnSubmit">Decrypt!</button><br><br><br>
+
+  <span style='font-family: monospace'><strong>Your message:</strong></span><br><br>
+  <span style='font-family: monospace' id="result"></span><br>
+</body>
+</html>

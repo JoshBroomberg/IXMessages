@@ -1,7 +1,8 @@
 const EthCrypto = require('eth-crypto');
+const EthCrypto = require('crypto');
 
-const MSG = "132d4c9050156a70f260b2e46e6285510234b5603c468214b467461cce281c519b15f5608d5bac2cdfa33f5d4c5e02427fd8a02ec369500b9661ba0e058fd36f3722845b5d9240741f01dfc4154cd8af74c94b1195e6aff444d9f6d59fd6d2c346";
-const PRIVKEY = "0x9823f0cd339405497e801d6f043314c8ffa0659371a38bab3cf3f120cb4963a6";
+const MSG = "cbb9b1866c80b7fe16a69ad363d4127803288fac785d20417b8237d45bb7ecdd9cb668586d0c9c6a6d1133c3fd4e346afb99215abacb2516ff2a046211bc294030844a98438a859d8f7c7e1631c9defd7af718423603548f3c0d485ea3cafb043f";
+const PRIVKEY = "0xc4d19317a1fd2832b1f690417fe00f51cd07ef2a265a2ac4f424284bc4d80b6c";
 
 async function decrypt(message, privKey) {
   const encryptedDict = EthCrypto.cipher.parse(message);
@@ -12,8 +13,10 @@ async function decrypt(message, privKey) {
   return decryptedMessage;
 }
 
-decrypt(MSG, PRIVKEY).then(result => {
-  console.log("Your message is below\n------------\n\n" + result);
-}).catch(error => {
-  console.log(error);
-})
+// decrypt(MSG, PRIVKEY).then(result => {
+//   console.log("Your message is below\n------------\n\n" + result);
+// }).catch(error => {
+//   console.log(error);
+// })
+
+module.exports = decrypt
